@@ -4,9 +4,10 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 public class GradeCalculatorTest {
-    GradeCalculator gradeCalculator = new GradeCalculator();
+    final GradeCalculator gradeCalculator = new GradeCalculator();
     int assignmentsCompleted;
     int achievementsCompleted;
+    String[] projectLevels;
 
     @Test public void test_checkAssignmentsGrade_A() {
         assignmentsCompleted = 7;
@@ -102,4 +103,46 @@ public class GradeCalculatorTest {
 
         Assertions.assertEquals(expectedGrade, actualGrade);
     }
+
+    @Test public void test_checkProjectsGrade_A() {
+        projectLevels = new String[]{"Proficient", "Proficient", "Starter", "Proficient"};
+
+        char expectedGrade = 'A';
+        char actualGrade = gradeCalculator.checkProjectsLevelsGrade(projectLevels);
+
+        Assertions.assertEquals(expectedGrade, actualGrade);
+    }
+    @Test public void test_checkProjectsGrade_B_1U() {
+        projectLevels = new String[]{"Master", "Master", "Master", "Un-assessable"};
+
+        char expectedGrade = 'B';
+        char actualGrade = gradeCalculator.checkProjectsLevelsGrade(projectLevels);
+
+        Assertions.assertEquals(expectedGrade, actualGrade);
+    }
+    @Test public void test_checkProjectsGrade_B_2U() {
+        projectLevels = new String[]{"Master", "Master", "Un-assessable", "Un-assessable"};
+
+        char expectedGrade = 'B';
+        char actualGrade = gradeCalculator.checkProjectsLevelsGrade(projectLevels);
+
+        Assertions.assertEquals(expectedGrade, actualGrade);
+    }
+    @Test public void test_checkProjectsGrade_B_3U() {
+        projectLevels = new String[]{"Master", "Un-assessable", "Un-assessable", "Un-assessable"};
+
+        char expectedGrade = 'B';
+        char actualGrade = gradeCalculator.checkProjectsLevelsGrade(projectLevels);
+
+        Assertions.assertEquals(expectedGrade, actualGrade);
+    }
+    @Test public void test_checkProjectsGrade_F() {
+        projectLevels = new String[]{"Un-assessable", "Un-assessable", "Un-assessable", "Un-assessable"};
+
+        char expectedGrade = 'F';
+        char actualGrade = gradeCalculator.checkProjectsLevelsGrade(projectLevels);
+
+        Assertions.assertEquals(expectedGrade, actualGrade);
+    }
+
 }
