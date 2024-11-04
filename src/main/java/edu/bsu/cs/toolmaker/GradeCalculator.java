@@ -14,4 +14,17 @@ public class GradeCalculator {
         else
             return 'F';
     }
+
+    public char checkAchievementsGrade(int achievementsCompleted) {
+        if (achievementsCompleted >= 6)
+            return 'A';
+        else if (achievementsCompleted == 5)
+            return 'B';
+        else if (achievementsCompleted == 4)
+            return 'C';
+        else if (achievementsCompleted == 3)
+            return 'D';
+        else
+            return 'F';
+    }
 }

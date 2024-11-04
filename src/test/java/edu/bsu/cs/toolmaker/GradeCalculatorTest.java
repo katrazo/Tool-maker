@@ -6,38 +6,39 @@ import org.junit.jupiter.api.Test;
 public class GradeCalculatorTest {
     GradeCalculator gradeCalculator = new GradeCalculator();
     int assignmentsCompleted;
+    int achievementsCompleted;
 
     @Test public void test_checkAssignmentsGrade_A() {
         assignmentsCompleted = 7;
 
-        char expectedAssignmentsGrade = 'A';
-        char actualAssignmentsGrade = gradeCalculator.checkAssignmentsGrade(assignmentsCompleted);
+        char expectedGrade = 'A';
+        char actualGrade = gradeCalculator.checkAssignmentsGrade(assignmentsCompleted);
 
-        Assertions.assertEquals(expectedAssignmentsGrade, actualAssignmentsGrade);
+        Assertions.assertEquals(expectedGrade, actualGrade);
     }
     @Test public void test_checkAssignmentsGrade_B() {
         assignmentsCompleted = 6;
 
-        char expectedAssignmentsGrade = 'B';
-        char actualAssignmentsGrade = gradeCalculator.checkAssignmentsGrade(assignmentsCompleted);
+        char expectedGrade = 'B';
+        char actualGrade = gradeCalculator.checkAssignmentsGrade(assignmentsCompleted);
 
-        Assertions.assertEquals(expectedAssignmentsGrade, actualAssignmentsGrade);
+        Assertions.assertEquals(expectedGrade, actualGrade);
     }
     @Test public void test_checkAssignmentsGrade_C() {
         assignmentsCompleted = 5;
 
-        char expectedAssignmentsGrade = 'C';
-        char actualAssignmentsGrade = gradeCalculator.checkAssignmentsGrade(assignmentsCompleted);
+        char expectedGrade = 'C';
+        char actualGrade = gradeCalculator.checkAssignmentsGrade(assignmentsCompleted);
 
-        Assertions.assertEquals(expectedAssignmentsGrade, actualAssignmentsGrade);
+        Assertions.assertEquals(expectedGrade, actualGrade);
     }
     @Test public void test_checkAssignmentsGrade_D() {
         assignmentsCompleted = 4;
 
-        char expectedAssignmentsGrade = 'D';
-        char actualAssignmentsGrade = gradeCalculator.checkAssignmentsGrade(assignmentsCompleted);
+        char expectedGrade = 'D';
+        char actualGrade = gradeCalculator.checkAssignmentsGrade(assignmentsCompleted);
 
-        Assertions.assertEquals(expectedAssignmentsGrade, actualAssignmentsGrade);
+        Assertions.assertEquals(expectedGrade, actualGrade);
     }
     @Test public void test_checkAssignmentsGrade_F() {
         assignmentsCompleted = 3;
@@ -46,6 +47,47 @@ public class GradeCalculatorTest {
         char actualAssignmentsGrade = gradeCalculator.checkAssignmentsGrade(assignmentsCompleted);
 
         Assertions.assertEquals(expectedAssignmentsGrade, actualAssignmentsGrade);
+    }
+
+    @Test public void test_checkAchievementsGrade_A() {
+        achievementsCompleted = 6;
+
+        char expectedGrade = 'A';
+        char actualGrade = gradeCalculator.checkAchievementsGrade(achievementsCompleted);
+
+        Assertions.assertEquals(expectedGrade, actualGrade);
+    }
+    @Test public void test_checkAchievementsGrade_B() {
+        achievementsCompleted = 5;
+
+        char expectedGrade = 'B';
+        char actualGrade = gradeCalculator.checkAchievementsGrade(achievementsCompleted);
+
+        Assertions.assertEquals(expectedGrade, actualGrade);
+    }
+    @Test public void test_checkAchievementsGrade_C() {
+        achievementsCompleted = 4;
+
+        char expectedGrade = 'C';
+        char actualGrade = gradeCalculator.checkAchievementsGrade(achievementsCompleted);
+
+        Assertions.assertEquals(expectedGrade, actualGrade);
+    }
+    @Test public void test_checkAchievementsGrade_D() {
+        achievementsCompleted = 3;
+
+        char expectedGrade = 'D';
+        char actualGrade = gradeCalculator.checkAchievementsGrade(achievementsCompleted);
+
+        Assertions.assertEquals(expectedGrade, actualGrade);
+    }
+    @Test public void test_checkAchievementsGrade_F() {
+        achievementsCompleted = 2;
+
+        char expectedGrade = 'F';
+        char actualGrade = gradeCalculator.checkAchievementsGrade(achievementsCompleted);
+
+        Assertions.assertEquals(expectedGrade, actualGrade);
     }
 
 }
