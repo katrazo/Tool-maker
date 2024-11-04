@@ -7,6 +7,7 @@ public class GradeCalculatorTest {
     final GradeCalculator gradeCalculator = new GradeCalculator();
     int assignmentsCompleted;
     int achievementsCompleted;
+    double finalExamPercentage;
     String[] projectLevels;
 
     @Test public void test_checkAssignmentsGrade_A() {
@@ -166,6 +167,39 @@ public class GradeCalculatorTest {
     @Test public void test_checkIterationThreeGrade_U() {
         char expectedGrade = 'F';
         char actualGrade = gradeCalculator.checkIterationThreeGrade("Un-assessable");
+
+        Assertions.assertEquals(expectedGrade, actualGrade);
+    }
+
+    @Test public void test_checkFinalExamGrade_A() {
+        finalExamPercentage = 1.0;
+
+        char expectedGrade = 'A';
+        char actualGrade = gradeCalculator.checkFinalExamGrade(finalExamPercentage);
+
+        Assertions.assertEquals(expectedGrade, actualGrade);
+    }
+    @Test public void test_checkFinalExamGrade_B() {
+        finalExamPercentage = 0.95;
+
+        char expectedGrade = 'B';
+        char actualGrade = gradeCalculator.checkFinalExamGrade(finalExamPercentage);
+
+        Assertions.assertEquals(expectedGrade, actualGrade);
+    }
+    @Test public void test_checkFinalExamGrade_C() {
+        finalExamPercentage = 0.76;
+
+        char expectedGrade = 'C';
+        char actualGrade = gradeCalculator.checkFinalExamGrade(finalExamPercentage);
+
+        Assertions.assertEquals(expectedGrade, actualGrade);
+    }
+    @Test public void test_checkFinalExamGrade_D() {
+        finalExamPercentage = 0.50;
+
+        char expectedGrade = 'D';
+        char actualGrade = gradeCalculator.checkFinalExamGrade(finalExamPercentage);
 
         Assertions.assertEquals(expectedGrade, actualGrade);
     }

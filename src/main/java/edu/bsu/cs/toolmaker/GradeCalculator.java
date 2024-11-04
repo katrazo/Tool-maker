@@ -3,6 +3,17 @@ package edu.bsu.cs.toolmaker;
 public class GradeCalculator {
     private final char[] LETTER_GRADES = {'A', 'B', 'C', 'D', 'F'};
 
+    public char checkFinalExamGrade(double finalExamPercentage) {
+        if (finalExamPercentage == 1)
+            return 'A';
+        else if (finalExamPercentage >= 0.9)
+            return 'B';
+        else if (finalExamPercentage >= 0.75)
+            return 'C';
+        else
+            return 'D';
+    }
+
     public char checkIterationThreeGrade(String level) {
         return switch (level) {
             case "Master" -> 'A';
