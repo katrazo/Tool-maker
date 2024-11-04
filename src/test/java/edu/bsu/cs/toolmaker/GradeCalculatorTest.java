@@ -145,4 +145,29 @@ public class GradeCalculatorTest {
         Assertions.assertEquals(expectedGrade, actualGrade);
     }
 
+    @Test public void test_checkIterationThreeGrade_M() {
+        char expectedGrade = 'A';
+        char actualGrade = gradeCalculator.checkIterationThreeGrade("Master");
+
+        Assertions.assertEquals(expectedGrade, actualGrade);
+    }
+    @Test public void test_checkIterationThreeGrade_P() {
+        char expectedGrade = 'B';
+        char actualGrade = gradeCalculator.checkIterationThreeGrade("Proficient");
+
+        Assertions.assertEquals(expectedGrade, actualGrade);
+    }
+    @Test public void test_checkIterationThreeGrade_S() {
+        char expectedGrade = 'C';
+        char actualGrade = gradeCalculator.checkIterationThreeGrade("Starter");
+
+        Assertions.assertEquals(expectedGrade, actualGrade);
+    }
+    @Test public void test_checkIterationThreeGrade_U() {
+        char expectedGrade = 'F';
+        char actualGrade = gradeCalculator.checkIterationThreeGrade("Un-assessable");
+
+        Assertions.assertEquals(expectedGrade, actualGrade);
+    }
+
 }

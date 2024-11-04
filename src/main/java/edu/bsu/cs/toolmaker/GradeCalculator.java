@@ -3,10 +3,19 @@ package edu.bsu.cs.toolmaker;
 public class GradeCalculator {
     private final char[] LETTER_GRADES = {'A', 'B', 'C', 'D', 'F'};
 
-    public char checkProjectsLevelsGrade(String[] projectLevels) {
+    public char checkIterationThreeGrade(String level) {
+        return switch (level) {
+            case "Master" -> 'A';
+            case "Proficient" -> 'B';
+            case "Starter" -> 'C';
+            default -> 'F';
+        };
+    }
+
+    public char checkProjectsLevelsGrade(String[] levels) {
         int projectsWithStarterOrHigher = 0;
 
-        for (String projectLevel : projectLevels) {
+        for (String projectLevel : levels) {
             if (!projectLevel.equals("Un-assessable"))
                 projectsWithStarterOrHigher += 1;
         }
