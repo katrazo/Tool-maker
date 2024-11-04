@@ -3,26 +3,6 @@ package edu.bsu.cs.toolmaker;
 public class GradeCalculator {
     private final char[] LETTER_GRADES = {'A', 'B', 'C', 'D', 'F'};
 
-    public char checkFinalExamGrade(double finalExamPercentage) {
-        if (finalExamPercentage == 1)
-            return 'A';
-        else if (finalExamPercentage >= 0.9)
-            return 'B';
-        else if (finalExamPercentage >= 0.75)
-            return 'C';
-        else
-            return 'D';
-    }
-
-    public char checkIterationThreeGrade(String level) {
-        return switch (level) {
-            case "Master" -> 'A';
-            case "Proficient" -> 'B';
-            case "Starter" -> 'C';
-            default -> 'F';
-        };
-    }
-
     public char checkProjectsLevelsGrade(String[] levels) {
         int projectsWithStarterOrHigher = 0;
 
@@ -43,19 +23,45 @@ public class GradeCalculator {
         return (didCompleteMidterm) ? 'A' : 'D';
     }
 
+
+    public char checkFinalExamGrade(double finalExamPercentage) {
+        return checkCompletedSpecsAgainstBundle(
+                finalExamPercentage,
+                new double[]{1.00, 0.90, 0.75, 0.00, 0.00}
+        );
+    }
+
+    public char checkIterationThreeGrade(String level) {
+        double levelRepresentation =
+                switch (level) {
+                    case "Master" -> 3;
+                    case "Proficient" -> 2;
+                    case "Starter" -> 1;
+                    default -> 0;
+                };
+
+        return checkCompletedSpecsAgainstBundle(
+                levelRepresentation,
+                new double[]{3, 2, 1, 1, 0}
+        );
+    }
+
     public char checkAssignmentsGrade(int assignmentsCompleted) {
         return checkCompletedSpecsAgainstBundle(
                 assignmentsCompleted,
-                new int[]{7, 6, 5, 4, 0}
+                new double[]{7, 6, 5, 4, 0}
         );
     }
+
     public char checkAchievementsGrade(int achievementsCompleted) {
         return checkCompletedSpecsAgainstBundle(
                 achievementsCompleted,
-                new int[]{6, 5, 4, 3, 0}
+                new double[]{6, 5, 4, 3, 0}
         );
     }
-    private char checkCompletedSpecsAgainstBundle(int completedSpecs, int[] bundleThresholds) {
+
+
+    private char checkCompletedSpecsAgainstBundle(double completedSpecs, double[] bundleThresholds) {
         for (int i = 0; i < LETTER_GRADES.length; i++)
             if (completedSpecs >= bundleThresholds[i])
                 return LETTER_GRADES[i];
