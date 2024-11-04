@@ -3,6 +3,17 @@ package edu.bsu.cs.toolmaker;
 public class GradeCalculator {
     private final char[] LETTER_GRADES = {'A', 'B', 'C', 'D', 'F'};
 
+    public char calculateOverallGrade(char[] individualGrades) {
+        char toReturn = 0;
+
+        for (char individualGrade : individualGrades)
+            if (individualGrade > toReturn)
+                toReturn = individualGrade;
+
+        return toReturn;
+    }
+
+
     public char checkProjectsLevelsGrade(String[] levels) {
         int projectsWithStarterOrHigher = 0;
 

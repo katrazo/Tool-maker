@@ -9,6 +9,7 @@ public class GradeCalculatorTest {
     int achievementsCompleted;
     double finalExamPercentage;
     String[] projectLevels;
+    char[] individualGrades;
 
     @Test public void test_checkAssignmentsGrade_A() {
         assignmentsCompleted = 7;
@@ -202,6 +203,47 @@ public class GradeCalculatorTest {
         char actualGrade = gradeCalculator.checkFinalExamGrade(finalExamPercentage);
 
         Assertions.assertEquals(expectedGrade, actualGrade);
+    }
+
+    @Test public void test_calculateOverallGrade_A() {
+        individualGrades = new char[]{'A', 'A', 'A', 'A', 'A', 'A'};
+
+        char expectedOverallGrade = 'A';
+        char actualOverallGrade = gradeCalculator.calculateOverallGrade(individualGrades);
+
+        Assertions.assertEquals(expectedOverallGrade, actualOverallGrade);
+    }
+    @Test public void test_calculateOverallGrade_B() {
+        individualGrades = new char[]{'A', 'A', 'A', 'A', 'A', 'B'};
+
+        char expectedOverallGrade = 'B';
+        char actualOverallGrade = gradeCalculator.calculateOverallGrade(individualGrades);
+
+        Assertions.assertEquals(expectedOverallGrade, actualOverallGrade);
+    }
+    @Test public void test_calculateOverallGrade_C() {
+        individualGrades = new char[]{'A', 'C', 'A', 'A', 'A', 'B'};
+
+        char expectedOverallGrade = 'C';
+        char actualOverallGrade = gradeCalculator.calculateOverallGrade(individualGrades);
+
+        Assertions.assertEquals(expectedOverallGrade, actualOverallGrade);
+    }
+    @Test public void test_calculateOverallGrade_D() {
+        individualGrades = new char[]{'A', 'C', 'B', 'D', 'A', 'B'};
+
+        char expectedOverallGrade = 'D';
+        char actualOverallGrade = gradeCalculator.calculateOverallGrade(individualGrades);
+
+        Assertions.assertEquals(expectedOverallGrade, actualOverallGrade);
+    }
+    @Test public void test_calculateOverallGrade_F() {
+        individualGrades = new char[]{'F', 'C', 'B', 'D', 'A', 'B'};
+
+        char expectedOverallGrade = 'F';
+        char actualOverallGrade = gradeCalculator.calculateOverallGrade(individualGrades);
+
+        Assertions.assertEquals(expectedOverallGrade, actualOverallGrade);
     }
 
 }
