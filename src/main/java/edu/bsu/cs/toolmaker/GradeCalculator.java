@@ -1,7 +1,14 @@
 package edu.bsu.cs.toolmaker;
 
 public class GradeCalculator {
-    private final char[] LETTER_GRADES = {'A', 'B', 'C', 'D', 'F'};
+    private static final char[] LETTER_GRADES = {'A', 'B', 'C', 'D', 'F'};
+
+    private char finalExamGrade;
+    private char iterationThreeGrade;
+    private char projectsLevelsGrade;
+    private char midtermGrade;
+    private char achievementsGrade;
+    private char assignmentsGrade;
 
     public char calculateOverallGrade(char[] individualGrades) {
         char toReturn = 0;
@@ -12,7 +19,38 @@ public class GradeCalculator {
 
         return toReturn;
     }
+    public char calculateOverallGrade() {
+        return calculateOverallGrade(new char[]{
+                        finalExamGrade,
+                        iterationThreeGrade,
+                        projectsLevelsGrade,
+                        midtermGrade,
+                        achievementsGrade,
+                        assignmentsGrade
+        });
+    }
 
+
+    public char checkFinalExamGrade(double finalExamPercentage) {
+        return finalExamGrade = checkCompletedSpecsAgainstBundle(
+                finalExamPercentage,
+                new double[]{1.00, 0.90, 0.75, 0.00, 0.00}
+        );
+    }
+
+    public char checkIterationThreeGrade(String level) {
+        double levelRepresentation = switch (level) {
+                case "Master" -> 3;
+                case "Proficient" -> 2;
+                case "Starter" -> 1;
+                default -> 0;
+        };
+
+        return iterationThreeGrade = checkCompletedSpecsAgainstBundle(
+                levelRepresentation,
+                new double[]{3, 2, 1, 1, 0}
+        );
+    }
 
     public char checkProjectsLevelsGrade(String[] levels) {
         int projectsWithStarterOrHigher = 0;
@@ -22,52 +60,27 @@ public class GradeCalculator {
                 projectsWithStarterOrHigher += 1;
         }
 
-        if (projectsWithStarterOrHigher == 4)
-            return 'A';
-        else if (projectsWithStarterOrHigher > 0)
-            return 'B';
-        else
-            return 'F';
-    }
-
-    public char checkMidtermGrade(boolean didCompleteMidterm) {
-        return (didCompleteMidterm) ? 'A' : 'D';
-    }
-
-
-    public char checkFinalExamGrade(double finalExamPercentage) {
-        return checkCompletedSpecsAgainstBundle(
-                finalExamPercentage,
-                new double[]{1.00, 0.90, 0.75, 0.00, 0.00}
+        return projectsLevelsGrade = checkCompletedSpecsAgainstBundle(
+                projectsWithStarterOrHigher,
+                new double[]{4, 1, 1, 1, 0}
         );
     }
 
-    public char checkIterationThreeGrade(String level) {
-        double levelRepresentation =
-                switch (level) {
-                    case "Master" -> 3;
-                    case "Proficient" -> 2;
-                    case "Starter" -> 1;
-                    default -> 0;
-                };
+    public char checkMidtermGrade(boolean didCompleteMidterm) {
+        return midtermGrade = (didCompleteMidterm) ? 'A' : 'D';
+    }
 
-        return checkCompletedSpecsAgainstBundle(
-                levelRepresentation,
-                new double[]{3, 2, 1, 1, 0}
+    public char checkAchievementsGrade(int achievementsCompleted) {
+        return achievementsGrade = checkCompletedSpecsAgainstBundle(
+                achievementsCompleted,
+                new double[]{6, 5, 4, 3, 0}
         );
     }
 
     public char checkAssignmentsGrade(int assignmentsCompleted) {
-        return checkCompletedSpecsAgainstBundle(
+        return assignmentsGrade = checkCompletedSpecsAgainstBundle(
                 assignmentsCompleted,
                 new double[]{7, 6, 5, 4, 0}
-        );
-    }
-
-    public char checkAchievementsGrade(int achievementsCompleted) {
-        return checkCompletedSpecsAgainstBundle(
-                achievementsCompleted,
-                new double[]{6, 5, 4, 3, 0}
         );
     }
 

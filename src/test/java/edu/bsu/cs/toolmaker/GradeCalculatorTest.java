@@ -246,4 +246,17 @@ public class GradeCalculatorTest {
         Assertions.assertEquals(expectedOverallGrade, actualOverallGrade);
     }
 
+    @Test public void test_calculateOverallGrade_noArgs() {
+        gradeCalculator.checkAssignmentsGrade(7);
+        gradeCalculator.checkAchievementsGrade(6);
+        gradeCalculator.checkMidtermGrade(true);
+        gradeCalculator.checkProjectsLevelsGrade(new String[]{"Master", "Master", "Master", "Master"});
+        gradeCalculator.checkIterationThreeGrade("Master");
+        gradeCalculator.checkFinalExamGrade(1.00);
+
+        char expectedGrade = 'A';
+        char actualGrade = gradeCalculator.calculateOverallGrade();
+
+        Assertions.assertEquals(expectedGrade, actualGrade);
+    }
 }
