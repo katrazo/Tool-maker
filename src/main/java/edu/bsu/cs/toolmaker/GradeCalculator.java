@@ -1,30 +1,28 @@
 package edu.bsu.cs.toolmaker;
 
 public class GradeCalculator {
+    private final char[] LETTER_GRADES = {'A', 'B', 'C', 'D', 'F'};
 
     public char checkAssignmentsGrade(int assignmentsCompleted) {
-        if (assignmentsCompleted >= 7)
-            return 'A';
-        else if (assignmentsCompleted == 6)
-            return 'B';
-        else if (assignmentsCompleted == 5)
-            return 'C';
-        else if (assignmentsCompleted == 4)
-            return 'D';
-        else
-            return 'F';
+        return checkCompletedSpecsAgainstBundle(
+                assignmentsCompleted,
+                new int[]{7, 6, 5, 4, 0}
+        );
+    }
+    public char checkAchievementsGrade(int achievementsCompleted) {
+        return checkCompletedSpecsAgainstBundle(
+                achievementsCompleted,
+                new int[]{6, 5, 4, 3, 0}
+        );
     }
 
-    public char checkAchievementsGrade(int achievementsCompleted) {
-        if (achievementsCompleted >= 6)
-            return 'A';
-        else if (achievementsCompleted == 5)
-            return 'B';
-        else if (achievementsCompleted == 4)
-            return 'C';
-        else if (achievementsCompleted == 3)
-            return 'D';
-        else
-            return 'F';
+    private char checkCompletedSpecsAgainstBundle(int completedSpecs, int[] bundleThresholds) {
+        for (int i = 0; i < LETTER_GRADES.length; i++)
+            if (completedSpecs >= bundleThresholds[i])
+                return LETTER_GRADES[i];
+
+        return '#';
     }
+
+
 }
