@@ -3,16 +3,49 @@ package edu.bsu.cs.toolmaker;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import java.util.Arrays;
-
 public class GradeCalculatorTest {
-    @Test
-    public void test_getGradeSet() {
-        GradeCalculator gradeCalculator = new GradeCalculator();
+    GradeCalculator gradeCalculator = new GradeCalculator();
+    int assignmentsCompleted;
 
-        char[] expectedGradeSet = {'A', 'B', 'C', 'D', 'F'};
-        char[] actualGradeSet = gradeCalculator.getGradeSet();
+    @Test public void test_checkAssignmentsGrade_A() {
+        assignmentsCompleted = 7;
 
-        Assertions.assertEquals(Arrays.toString(expectedGradeSet), Arrays.toString(actualGradeSet));
+        char expectedAssignmentsGrade = 'A';
+        char actualAssignmentsGrade = gradeCalculator.checkAssignmentsGrade(assignmentsCompleted);
+
+        Assertions.assertEquals(expectedAssignmentsGrade, actualAssignmentsGrade);
     }
+    @Test public void test_checkAssignmentsGrade_B() {
+        assignmentsCompleted = 6;
+
+        char expectedAssignmentsGrade = 'B';
+        char actualAssignmentsGrade = gradeCalculator.checkAssignmentsGrade(assignmentsCompleted);
+
+        Assertions.assertEquals(expectedAssignmentsGrade, actualAssignmentsGrade);
+    }
+    @Test public void test_checkAssignmentsGrade_C() {
+        assignmentsCompleted = 5;
+
+        char expectedAssignmentsGrade = 'C';
+        char actualAssignmentsGrade = gradeCalculator.checkAssignmentsGrade(assignmentsCompleted);
+
+        Assertions.assertEquals(expectedAssignmentsGrade, actualAssignmentsGrade);
+    }
+    @Test public void test_checkAssignmentsGrade_D() {
+        assignmentsCompleted = 4;
+
+        char expectedAssignmentsGrade = 'D';
+        char actualAssignmentsGrade = gradeCalculator.checkAssignmentsGrade(assignmentsCompleted);
+
+        Assertions.assertEquals(expectedAssignmentsGrade, actualAssignmentsGrade);
+    }
+    @Test public void test_checkAssignmentsGrade_F() {
+        assignmentsCompleted = 3;
+
+        char expectedAssignmentsGrade = 'F';
+        char actualAssignmentsGrade = gradeCalculator.checkAssignmentsGrade(assignmentsCompleted);
+
+        Assertions.assertEquals(expectedAssignmentsGrade, actualAssignmentsGrade);
+    }
+
 }
