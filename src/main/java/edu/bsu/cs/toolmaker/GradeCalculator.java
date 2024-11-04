@@ -3,6 +3,10 @@ package edu.bsu.cs.toolmaker;
 public class GradeCalculator {
     private final char[] LETTER_GRADES = {'A', 'B', 'C', 'D', 'F'};
 
+    public char checkMidtermGrade(boolean didCompleteMidterm) {
+        return (didCompleteMidterm) ? 'A' : 'D';
+    }
+
     public char checkAssignmentsGrade(int assignmentsCompleted) {
         return checkCompletedSpecsAgainstBundle(
                 assignmentsCompleted,

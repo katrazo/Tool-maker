@@ -90,4 +90,16 @@ public class GradeCalculatorTest {
         Assertions.assertEquals(expectedGrade, actualGrade);
     }
 
+    @Test public void test_checkMidtermGrade_true() {
+        char expectedGrade = 'A';
+        char actualGrade = gradeCalculator.checkMidtermGrade(true);
+
+        Assertions.assertEquals(expectedGrade, actualGrade);
+    }
+    @Test public void test_checkMidtermGrade_false() {
+        char expectedGrade = 'D';
+        char actualGrade = gradeCalculator.checkMidtermGrade(false);
+
+        Assertions.assertEquals(expectedGrade, actualGrade);
+    }
 }
