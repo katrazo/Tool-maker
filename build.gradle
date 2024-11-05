@@ -20,7 +20,6 @@ tasks.withType(JavaCompile).configureEach {
 }
 
 application {
-    mainModule = 'edu.bsu.cs.toolmaker'
     mainClass = 'edu.bsu.cs.toolmaker.application.ToolmakerApplication'
 }
 

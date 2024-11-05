@@ -1,9 +1,126 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.layout.AnchorPane?>
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="edu.bsu.cs.toolmaker.application.ToolmakerController"
-            prefHeight="400.0" prefWidth="600.0">
-
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import java.lang.*?>
+<AnchorPane prefHeight="400.0" prefWidth="600.0" stylesheets="@primer-dark.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.bsu.cs.toolmaker.application.ToolmakerController">
+    <HBox alignment="CENTER_LEFT" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0.0">
+        <VBox alignment="TOP_CENTER" prefWidth="300.0" spacing="7.0">
+            <Label styleClass="title-3" text="Assignments" textAlignment="CENTER">
+                <VBox.margin>
+                    <Insets bottom="-5.0" />
+                </VBox.margin>
+            </Label>
+            <Label contentDisplay="RIGHT" text="Completed:">
+                <graphic>
+                    <Spinner editable="true" prefHeight="32.0" prefWidth="75.0" styleClass="text-small">
+                        <valueFactory>
+                            <SpinnerValueFactory.IntegerSpinnerValueFactory max="10" min="0" />
+                        </valueFactory>
+                    </Spinner>
+                </graphic>
+            </Label>
+            <Label styleClass="title-3" text="Achievements" textAlignment="CENTER">
+                <VBox.margin>
+                    <Insets bottom="-5.0" top="10.0" />
+                </VBox.margin></Label>
+            <Label contentDisplay="RIGHT" text="Completed:">
+                <graphic>
+                    <Spinner editable="true" prefHeight="32.0" prefWidth="75.0" styleClass="text-small">
+                        <valueFactory>
+                            <SpinnerValueFactory.IntegerSpinnerValueFactory max="10" min="0" />
+                        </valueFactory>
+                    </Spinner>
+                </graphic>
+            </Label>
+            <Label layoutX="10.0" layoutY="96.0" prefHeight="67.0" prefWidth="156.0" styleClass="title-3" text="Mid-Sem. Self Assessment" textAlignment="CENTER" wrapText="true">
+                <VBox.margin>
+                    <Insets bottom="-5.0" top="10.0" />
+                </VBox.margin></Label>
+            <Label contentDisplay="RIGHT" text="Completed:">
+                <graphic>
+                    <CheckBox mnemonicParsing="false" />
+                </graphic>
+                <VBox.margin>
+                    <Insets />
+                </VBox.margin>
+            </Label>
+         <Label styleClass="title-3" text="Final Exam" textAlignment="CENTER">
+            <VBox.margin>
+               <Insets bottom="-5.0" top="10.0" />
+            </VBox.margin></Label>
+         <Label contentDisplay="BOTTOM" layoutX="43.0" layoutY="288.0" text="Score [%]">
+            <graphic>
+               <Slider blockIncrement="5.0" minorTickCount="4" showTickLabels="true" showTickMarks="true" snapToTicks="true" />
+            </graphic>
+         </Label>
+        </VBox>
+        <Separator orientation="VERTICAL" prefHeight="200.0" />
+        <VBox alignment="TOP_CENTER" layoutX="168.0" layoutY="10.0" prefWidth="300.0" spacing="6.0">
+            <Label styleClass="title-3" text="Projects" textAlignment="CENTER">
+                <VBox.margin>
+                    <Insets bottom="-5.0" />
+                </VBox.margin>
+            </Label>
+            <Label contentDisplay="BOTTOM" text="First Project">
+                <graphic>
+                    <ChoiceBox prefWidth="150.0" styleClass="text-small">
+                        <String fx:value="Master" />
+                        <String fx:value="Proficient" />
+                        <String fx:value="Starter" />
+                        <String fx:value="Un-assessable" />
+                    </ChoiceBox>
+                </graphic>
+                <VBox.margin>
+                    <Insets />
+                </VBox.margin>
+            </Label>
+            <Label contentDisplay="BOTTOM" layoutX="12.0" layoutY="77.0" text="First Project w/ GUI">
+                <graphic>
+                    <ChoiceBox prefWidth="150.0" styleClass="text-small">
+                        <String fx:value="Master" />
+                        <String fx:value="Proficient" />
+                        <String fx:value="Starter" />
+                        <String fx:value="Un-assessable" />
+                    </ChoiceBox>
+                </graphic>
+            </Label>
+            <Label contentDisplay="BOTTOM" layoutX="12.0" layoutY="77.0" text="Final Project #1">
+                <graphic>
+                    <ChoiceBox prefWidth="150.0" styleClass="text-small">
+                        <String fx:value="Master" />
+                        <String fx:value="Proficient" />
+                        <String fx:value="Starter" />
+                        <String fx:value="Un-assessable" />
+                    </ChoiceBox>
+                </graphic>
+            </Label>
+            <Label contentDisplay="BOTTOM" layoutX="12.0" layoutY="77.0" text="Final Project #2">
+                <graphic>
+                    <ChoiceBox prefWidth="150.0" styleClass="text-small">
+                        <String fx:value="Master" />
+                        <String fx:value="Proficient" />
+                        <String fx:value="Starter" />
+                        <String fx:value="Un-assessable" />
+                    </ChoiceBox>
+                </graphic>
+            </Label>
+            <Label contentDisplay="BOTTOM" layoutX="12.0" layoutY="77.0" styleClass="text-bold" text="Final Project #3">
+                <graphic>
+                    <ChoiceBox prefWidth="150.0" styleClass="text-small">
+                        <String fx:value="Master" />
+                        <String fx:value="Proficient" />
+                        <String fx:value="Starter" />
+                        <String fx:value="Un-assessable" />
+                    </ChoiceBox>
+                </graphic>
+            </Label>
+        </VBox>
+        <Separator orientation="VERTICAL" prefHeight="200.0" />
+      <VBox prefHeight="200.0" prefWidth="300.0" />
+    </HBox>
+    <padding>
+        <Insets bottom="5.0" left="20.0" right="20.0" top="5.0" />
+    </padding>
 </AnchorPane>
