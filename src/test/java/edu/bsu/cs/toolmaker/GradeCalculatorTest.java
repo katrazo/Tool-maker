@@ -149,25 +149,25 @@ public class GradeCalculatorTest {
 
     @Test public void test_checkIterationThreeGrade_M() {
         char expectedGrade = 'A';
-        char actualGrade = gradeCalculator.checkIterationThreeGrade("Master");
+        char actualGrade = gradeCalculator.checkIterationThreeGrade("M");
 
         Assertions.assertEquals(expectedGrade, actualGrade);
     }
     @Test public void test_checkIterationThreeGrade_P() {
         char expectedGrade = 'B';
-        char actualGrade = gradeCalculator.checkIterationThreeGrade("Proficient");
+        char actualGrade = gradeCalculator.checkIterationThreeGrade("P");
 
         Assertions.assertEquals(expectedGrade, actualGrade);
     }
     @Test public void test_checkIterationThreeGrade_S() {
         char expectedGrade = 'C';
-        char actualGrade = gradeCalculator.checkIterationThreeGrade("Starter");
+        char actualGrade = gradeCalculator.checkIterationThreeGrade("S");
 
         Assertions.assertEquals(expectedGrade, actualGrade);
     }
     @Test public void test_checkIterationThreeGrade_U() {
         char expectedGrade = 'F';
-        char actualGrade = gradeCalculator.checkIterationThreeGrade("Un-assessable");
+        char actualGrade = gradeCalculator.checkIterationThreeGrade("U");
 
         Assertions.assertEquals(expectedGrade, actualGrade);
     }
@@ -250,8 +250,8 @@ public class GradeCalculatorTest {
         gradeCalculator.checkAssignmentsGrade(7);
         gradeCalculator.checkAchievementsGrade(6);
         gradeCalculator.checkMidtermGrade(true);
-        gradeCalculator.checkProjectsLevelsGrade(new String[]{"Master", "Master", "Master", "Proficient"});
-        gradeCalculator.checkIterationThreeGrade("Proficient");
+        gradeCalculator.checkProjectsLevelsGrade(new String[]{"M", "M", "M", "P"});
+        gradeCalculator.checkIterationThreeGrade("P");
         gradeCalculator.checkFinalExamGrade(1.00);
 
         char expectedGrade = 'B';

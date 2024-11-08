@@ -4,9 +4,9 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import java.lang.*?>
-<AnchorPane prefHeight="400.0" prefWidth="600.0" stylesheets="@primer-dark.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.bsu.cs.toolmaker.application.ToolmakerController">
+<AnchorPane prefHeight="427.0" prefWidth="600.0" stylesheets="@primer-light.css" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="edu.bsu.cs.toolmaker.application.ToolmakerController">
     <HBox alignment="CENTER_LEFT" spacing="10.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0.0">
-        <VBox alignment="TOP_CENTER" prefWidth="300.0" spacing="7.0">
+        <VBox alignment="TOP_CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="300.0" spacing="10.0">
             <Label styleClass="title-3" text="Assignments" textAlignment="CENTER">
                 <VBox.margin>
                     <Insets bottom="-5.0" />
@@ -14,9 +14,9 @@
             </Label>
             <Label contentDisplay="RIGHT" text="Completed:">
                 <graphic>
-                    <Spinner editable="true" prefHeight="32.0" prefWidth="75.0" styleClass="text-small">
+                    <Spinner fx:id="assignmentsSpinner" editable="true" prefHeight="32.0" prefWidth="75.0">
                         <valueFactory>
-                            <SpinnerValueFactory.IntegerSpinnerValueFactory max="10" min="0" />
+                            <SpinnerValueFactory.IntegerSpinnerValueFactory max="7" min="0" />
                         </valueFactory>
                     </Spinner>
                 </graphic>
@@ -24,12 +24,13 @@
             <Label styleClass="title-3" text="Achievements" textAlignment="CENTER">
                 <VBox.margin>
                     <Insets bottom="-5.0" top="10.0" />
-                </VBox.margin></Label>
+                </VBox.margin>
+            </Label>
             <Label contentDisplay="RIGHT" text="Completed:">
                 <graphic>
-                    <Spinner editable="true" prefHeight="32.0" prefWidth="75.0" styleClass="text-small">
+                    <Spinner fx:id="achievementsSpinner" editable="true" prefHeight="32.0" prefWidth="75.0">
                         <valueFactory>
-                            <SpinnerValueFactory.IntegerSpinnerValueFactory max="10" min="0" />
+                            <SpinnerValueFactory.IntegerSpinnerValueFactory max="6" min="0" />
                         </valueFactory>
                     </Spinner>
                 </graphic>
@@ -37,27 +38,29 @@
             <Label layoutX="10.0" layoutY="96.0" prefHeight="67.0" prefWidth="156.0" styleClass="title-3" text="Mid-Sem. Self Assessment" textAlignment="CENTER" wrapText="true">
                 <VBox.margin>
                     <Insets bottom="-5.0" top="10.0" />
-                </VBox.margin></Label>
+                </VBox.margin>
+            </Label>
             <Label contentDisplay="RIGHT" text="Completed:">
                 <graphic>
-                    <CheckBox mnemonicParsing="false" />
+                    <CheckBox fx:id="selfAssessmentCheckbox" mnemonicParsing="false" />
                 </graphic>
                 <VBox.margin>
                     <Insets />
                 </VBox.margin>
             </Label>
-         <Label styleClass="title-3" text="Final Exam" textAlignment="CENTER">
-            <VBox.margin>
-               <Insets bottom="-5.0" top="10.0" />
-            </VBox.margin></Label>
-         <Label contentDisplay="BOTTOM" layoutX="43.0" layoutY="288.0" text="Score [%]">
-            <graphic>
-               <Slider blockIncrement="5.0" minorTickCount="4" showTickLabels="true" showTickMarks="true" snapToTicks="true" />
-            </graphic>
-         </Label>
+            <Label styleClass="title-3" text="Final Exam" textAlignment="CENTER">
+                <VBox.margin>
+                    <Insets bottom="-5.0" top="10.0" />
+                </VBox.margin>
+            </Label>
+            <Label contentDisplay="BOTTOM" layoutX="43.0" layoutY="288.0" text="Score [%]">
+                <graphic>
+                    <Slider fx:id="finalExamSlider" blockIncrement="5.0" minorTickCount="4" showTickLabels="true" showTickMarks="true" snapToTicks="true" />
+                </graphic>
+            </Label>
         </VBox>
         <Separator orientation="VERTICAL" prefHeight="200.0" />
-        <VBox alignment="TOP_CENTER" layoutX="168.0" layoutY="10.0" prefWidth="300.0" spacing="6.0">
+        <VBox alignment="TOP_CENTER" layoutX="168.0" layoutY="10.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="300.0" spacing="6.0">
             <Label styleClass="title-3" text="Projects" textAlignment="CENTER">
                 <VBox.margin>
                     <Insets bottom="-5.0" />
@@ -65,7 +68,7 @@
             </Label>
             <Label contentDisplay="BOTTOM" text="First Project">
                 <graphic>
-                    <ChoiceBox prefWidth="150.0" styleClass="text-small">
+                    <ChoiceBox fx:id="firstProjectChoice" prefWidth="150.0">
                         <String fx:value="Master" />
                         <String fx:value="Proficient" />
                         <String fx:value="Starter" />
@@ -78,7 +81,7 @@
             </Label>
             <Label contentDisplay="BOTTOM" layoutX="12.0" layoutY="77.0" text="First Project w/ GUI">
                 <graphic>
-                    <ChoiceBox prefWidth="150.0" styleClass="text-small">
+                    <ChoiceBox fx:id="firstProjGuiChoice" prefWidth="150.0">
                         <String fx:value="Master" />
                         <String fx:value="Proficient" />
                         <String fx:value="Starter" />
@@ -88,7 +91,7 @@
             </Label>
             <Label contentDisplay="BOTTOM" layoutX="12.0" layoutY="77.0" text="Final Project #1">
                 <graphic>
-                    <ChoiceBox prefWidth="150.0" styleClass="text-small">
+                    <ChoiceBox fx:id="iterationOneChoice" prefWidth="150.0">
                         <String fx:value="Master" />
                         <String fx:value="Proficient" />
                         <String fx:value="Starter" />
@@ -98,7 +101,7 @@
             </Label>
             <Label contentDisplay="BOTTOM" layoutX="12.0" layoutY="77.0" text="Final Project #2">
                 <graphic>
-                    <ChoiceBox prefWidth="150.0" styleClass="text-small">
+                    <ChoiceBox fx:id="iterationTwoChoice" prefWidth="150.0">
                         <String fx:value="Master" />
                         <String fx:value="Proficient" />
                         <String fx:value="Starter" />
@@ -108,7 +111,7 @@
             </Label>
             <Label contentDisplay="BOTTOM" layoutX="12.0" layoutY="77.0" styleClass="text-bold" text="Final Project #3">
                 <graphic>
-                    <ChoiceBox prefWidth="150.0" styleClass="text-small">
+                    <ChoiceBox fx:id="iterationThreeChoice" prefWidth="150.0">
                         <String fx:value="Master" />
                         <String fx:value="Proficient" />
                         <String fx:value="Starter" />
@@ -118,9 +121,86 @@
             </Label>
         </VBox>
         <Separator orientation="VERTICAL" prefHeight="200.0" />
-      <VBox prefHeight="200.0" prefWidth="300.0" />
+        <VBox alignment="TOP_CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefWidth="300.0" spacing="6.0">
+            <Label styleClass="title-3" text="Your Grade">
+                <padding>
+                    <Insets bottom="-5.0" />
+                </padding>
+            </Label>
+            <Label fx:id="gradeLabel" disable="true" prefHeight="27.0" text="#">
+                <styleClass>
+                    <String fx:value="text-bolder" />
+                    <String fx:value="title-4" />
+                </styleClass>
+            </Label>
+            <Button mnemonicParsing="false" onAction="#updateMyGrade" prefHeight="36.0" prefWidth="165.0" text="Show me my grade!">
+                <VBox.margin>
+                    <Insets />
+                </VBox.margin>
+            </Button>
+         <Label style="-fx-text-fill: -color-base-3;" text="(or update desired grade)">
+            <styleClass>
+               <String fx:value="text-small" />
+               <String fx:value="text-italic" />
+            </styleClass>
+            <VBox.margin>
+               <Insets bottom="8.0" top="-8.0" />
+            </VBox.margin>
+         </Label>
+            <Label text="Desired Grade:" />
+            <HBox alignment="CENTER">
+                <ToggleButton mnemonicParsing="false" style="-fx-text-fill: -color-accent-3;" text="A">
+                    <toggleGroup>
+                        <ToggleGroup fx:id="desiredGradeGroup" />
+                    </toggleGroup>
+                    <styleClass>
+                        <String fx:value="text-small" />
+                        <String fx:value="left-pill" />
+                  <String fx:value="text-bold" />
+                    </styleClass>
+                </ToggleButton>
+                <ToggleButton mnemonicParsing="false" style="-fx-text-fill: -color-success-3;" text="B" toggleGroup="$desiredGradeGroup">
+                    <styleClass>
+                        <String fx:value="text-small" />
+                        <String fx:value="center-pill" />
+                  <String fx:value="text-bold" />
+                    </styleClass>
+                </ToggleButton>
+                <ToggleButton mnemonicParsing="false" style="-fx-text-fill: -color-warning-3;" text="C" toggleGroup="$desiredGradeGroup">
+                    <styleClass>
+                        <String fx:value="text-small" />
+                        <String fx:value="center-pill" />
+                  <String fx:value="text-bold" />
+                    </styleClass>
+                </ToggleButton>
+                <ToggleButton mnemonicParsing="false" style="-fx-text-fill: -color-warning-6;" text="D" toggleGroup="$desiredGradeGroup">
+                    <styleClass>
+                        <String fx:value="text-small" />
+                        <String fx:value="center-pill" />
+                  <String fx:value="text-bold" />
+                    </styleClass>
+                </ToggleButton>
+                <ToggleButton mnemonicParsing="false" style="-fx-text-fill: -color-danger-6;" text="F" toggleGroup="$desiredGradeGroup">
+                    <styleClass>
+                        <String fx:value="text-small" />
+                        <String fx:value="right-pill" />
+                        <String fx:value="text-bold" />
+                    </styleClass>
+                </ToggleButton>
+            </HBox>
+            <TableView fx:id="gradeTable" prefHeight="195.0" prefWidth="156.0">
+                <columns>
+                    <TableColumn fx:id="gradeItemColumn" prefWidth="110" text="Item" />
+                    <TableColumn fx:id="yourGradeColumn" prefWidth="55" text="You" />
+                    <TableColumn fx:id="neededColumn" prefWidth="55" text="#" />
+                </columns>
+                <VBox.margin>
+                    <Insets top="14.0" />
+                </VBox.margin>
+            </TableView>
+        </VBox>
     </HBox>
     <padding>
-        <Insets bottom="5.0" left="20.0" right="20.0" top="5.0" />
+        <Insets bottom="10.0" left="20.0" right="20.0" top="5.0" />
     </padding>
 </AnchorPane>

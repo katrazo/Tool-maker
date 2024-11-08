@@ -10,6 +10,25 @@ public class GradeCalculator {
     private char achievementsGrade;
     private char assignmentsGrade;
 
+    @Override
+    public String toString() {
+        StringBuilder toReturn = new StringBuilder("Grades: ");
+        for (char grade : getGradesArray())
+            toReturn.append(grade).append(" ");
+
+        return toReturn.toString();
+    }
+    public char[] getGradesArray() {
+        return new char[] {
+            assignmentsGrade,
+            achievementsGrade,
+            midtermGrade,
+            projectsLevelsGrade,
+            iterationThreeGrade,
+            finalExamGrade
+        };
+    }
+
     public char calculateOverallGrade(char[] individualGrades) {
         char toReturn = 0;
 
@@ -40,9 +59,9 @@ public class GradeCalculator {
 
     public char checkIterationThreeGrade(String level) {
         double levelRepresentation = switch (level) {
-                case "Master" -> 3;
-                case "Proficient" -> 2;
-                case "Starter" -> 1;
+                case "M" -> 3;
+                case "P" -> 2;
+                case "S" -> 1;
                 default -> 0;
         };
 
