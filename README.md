@@ -8,7 +8,8 @@
 </details>
 
 ---
-...
+<h2>Build Instructions</h2>
+Once you have cloned the code or downloaded a release, allow the Gradle project to build. Then, execute <b><kbd>Gradle</kbd> > <kbd>Tasks</kbd> > <kbd>application</kbd> > <kbd>run</kbd></b>.
 
 ---
 <h2>Accreditation</h2>
@@ -19,7 +20,10 @@
 | Kat Razo             | Author    | <a href="https://github.com/katrazo">`katrazo`</a>     |
 | Mr. David L. Largent | Professor | <a href="https://github.com/dllargent">`dllargent`</a> |
 
-| Credited Asset           | Source                                                                                | Usage                                          |
-|--------------------------|---------------------------------------------------------------------------------------|------------------------------------------------|
-| Learner Progress Tracker | <a href="https://bsu.instructure.com/courses/157856/files/17950966?wrap=1">Canvas</a> | Used as a reference for grading algorithm.     |
-| Course Syllabus          | <a href="https://bsu.instructure.com/courses/157856/files/17911371?wrap=1">Canvas</a> | The baseline for this achievement and program. |
+<h3>Dependencies</h3>
+
+| Credited Asset           | Source                                                                                | Usage                                                   |
+|--------------------------|---------------------------------------------------------------------------------------|---------------------------------------------------------|
+| Learner Progress Tracker | <a href="https://bsu.instructure.com/courses/157856/files/17950966?wrap=1">Canvas</a> | Used as a reference for grading algorithm.              |
+| Course Syllabus          | <a href="https://bsu.instructure.com/courses/157856/files/17911371?wrap=1">Canvas</a> | The baseline for this achievement and program.          |
+| AtlantaFX: Primer-Light  | <a href="https://mkpaz.github.io/atlantafx/">AtlantaFX Themes</a>                     | A CSS styling for JavaFX with coloring and UI features. |
