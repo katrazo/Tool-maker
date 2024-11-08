@@ -44,7 +44,7 @@ public class ToolmakerController {
 
     @FXML private void updateMyGrade() {
         char grade = fetchMyGrade();
-        gradeLabel.setText(String.format("%c", grade));
+        gradeLabel.setText(String.valueOf(grade));
 
         updateTableContents();
     }
@@ -67,7 +67,7 @@ public class ToolmakerController {
                     iterationOneChoice.getValue(),
                     iterationTwoChoice.getValue()
             });
-            gradeCalculator.checkIterationThreeGrade(String.format("%c", (char) userInputs[4]));
+            gradeCalculator.checkIterationThreeGrade(String.valueOf(userInputs[4]));
             gradeCalculator.checkFinalExamGrade((Double) userInputs[5]);
 
             System.out.println(gradeCalculator);
@@ -75,7 +75,7 @@ public class ToolmakerController {
             return gradeCalculator.calculateOverallGrade();
         }
         catch (NullPointerException e) {
-            showBlockingAlert(e);
+            showBlockingAlert(new NullPointerException("You have left an input blank."));
             gradeLabel.setDisable(true);
             return '#';
         }
